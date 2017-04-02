@@ -8,13 +8,13 @@ function search() {
 
 function searchQiita(searchCriteria){
     var url = "https://qiita.com/api/v2/items?page=1&per_page=20&query=" + searchCriteria;
+    var qiitabody = $("#qiitaBody");
     $.ajax({
         type: "GET",
         url: url,
         success: function (result) {
             var html = "";
-            var qiitabody = $("#qiitaBody");
-            qiitabody.empty()
+            qiitabody.empty();
             for(var i = 0 ; i < result.length  ; i++){
                 var curRes =  result[i];
                 var no = i + 1;
@@ -26,6 +26,10 @@ function searchQiita(searchCriteria){
                             + "</tr>"
             }
             qiitabody.append(html);
+        },
+        error:function(){
+            qiitabody.empty();
+            qiitabody.append("<tr><td colspan="3">検索結果を取得できませんでした</td></tr>");
         }
     });
 }
@@ -51,6 +55,10 @@ function searchGoogle(searchCriteria){
                             + "</tr>"
             }
             gooBody.append(html);
+        },
+        error:function(){
+            qiitabody.empty();
+            qiitabody.append("<tr><td colspan="3">検索結果を取得できませんでした</td></tr>");
         }
     });
 }
