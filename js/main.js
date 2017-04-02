@@ -29,7 +29,7 @@ function searchQiita(searchCriteria){
         },
         error:function(){
             qiitabody.empty();
-            qiitabody.append("<tr><td colspan="3">検索結果を取得できませんでした</td></tr>");
+            qiitabody.append("<tr><td colspan='3'>検索結果を取得できませんでした</td></tr>");
         }
     });
 }
