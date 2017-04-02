@@ -36,13 +36,13 @@ function searchQiita(searchCriteria){
 
 function searchGoogle(searchCriteria){
     var url = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBZxYif6D2xcgEe2jj6zN8uSWcc-KIkc28&cx=016177116786243345986:81wsw_m2ui4&q=" + encodeURI($("#criteria").val());
+            var gooBody = $("#gooBody");
     $.ajax({
         type: "GET",
         url: url,
         success: function (result) {
             var questions = result.items;
             var html = "";
-            var gooBody = $("#gooBody");
             gooBody.empty()
             for(var i = 0 ; i < questions.length  ; i++){
                 var curRes =  questions[i];
