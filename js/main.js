@@ -57,8 +57,8 @@ function searchGoogle(searchCriteria){
             gooBody.append(html);
         },
         error:function(){
-            qiitabody.empty();
-            qiitabody.append("<tr><td colspan='3'>検索結果を取得できませんでした</td></tr>");
+            gooBody.empty();
+            gooBody.append("<tr><td colspan='3'>検索結果を取得できませんでした</td></tr>");
         }
     });
 }
