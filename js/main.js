@@ -36,21 +36,21 @@ function searchGoogle(searchCriteria){
         type: "GET",
         url: url,
         success: function (result) {
-            var questions = result.questions;
+            var questions = result.items;
             var html = "";
-            var teraBody = $("#teraBody");
-            teraBody.empty()
+            var gooBody = $("#gooBody");
+            gooBody.empty()
             for(var i = 0 ; i < questions.length  ; i++){
                 var curRes =  questions[i];
                 var no = i + 1;
-                var targetUrl = "'" + curRes.url +"'";
+                var targetUrl = "'" + curRes.formattedUrl +"'";
                 html = html + '<tr onclick="onTr(' + targetUrl + ')">'
                             +   "<td style='width:5%'>" + no + "</td>"
-                            +   "<td style='width:45%'>" + curRes.title + "</td>"
+                            +   "<td style='width:45%'>" + curRes.htmlTitle + "</td>"
+                            +   "<td style='width:50%'>" + curRes.htmlSnippet + "</td>"
                             + "</tr>"
             }
-            teraBody.append(html);
-            console.log(result);
+            gooBody.append(html);
         }
     });
 }
