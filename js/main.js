@@ -22,7 +22,7 @@ function searchQiita(searchCriteria){
                 html = html + '<tr onclick="onTr(' + targetUrl + ')">'
                             +   "<td style='width:5%'>" + no + "</td>"
                             +   "<td style='width:45%'>" + curRes.title + "</td>"
-                            +   "<td style='width:50%'>" + curRes.body.slice(0,20) + "</td>"
+                            +   "<td style='width:50%'>" + curRes.body.slice(0,50) + "</td>"
                             + "</tr>"
             }
             qiitabody.append(html);
